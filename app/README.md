@@ -66,9 +66,6 @@ Create a blank Role and add below details keep the role below authorization role
 | GET      |  /events/registrations |  event:view     |
 
 
-### Demo
-![Demo](images/demo.gif)
-
 ### Roles
 - Organizer: Event Organizer who will create, update, delete events and event details.
 - Participant: A user who wished to participate in an event.
