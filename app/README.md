@@ -11,8 +11,8 @@ Kindly follow below link to configure extensions.
 
 
 ### Roles
-Organizer: Event Organizer who will create, update, delete events and event details.
-Participant: A user who wished to participate in an event.
+- Organizer: Event Organizer who will create, update, delete events and event details.
+- Participant: A user who wished to participate in an event.
 
 ### Links
 [RBAC Setup](https://auth0.com/docs/authorization/rbac)
