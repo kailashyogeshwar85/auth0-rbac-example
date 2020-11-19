@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faWrench } from '@fortawesome/free-solid-svg-icons';
 
 import {
   Collapse,
@@ -42,6 +42,10 @@ const NavBar = () => {
     logout({
       returnTo: window.location.origin,
     });
+
+  const login = () => {
+    loginWithRedirect({});
+  }
 
   return (
     <div className="nav-container">
@@ -93,7 +97,7 @@ const NavBar = () => {
                     id="qsLoginBtn"
                     color="primary"
                     className="btn-margin"
-                    onClick={() => loginWithRedirect()}
+                    onClick={() => login()}
                   >
                     Log in
                   </Button>
@@ -134,11 +138,17 @@ const NavBar = () => {
                       <FontAwesomeIcon icon={faCalendar} className="mr-3" /> Dashboard
                     </DropdownItem>
                     <DropdownItem
+                      tag={RouterNavLink}
+                      to="/settings"
+                      activeClassName="router-link-exact-active"
+                    >
+                      <FontAwesomeIcon icon={faWrench} className="mr-3" /> Settings
+                    </DropdownItem>
+                    <DropdownItem
                       id="qsLogoutBtn"
                       onClick={() => logoutWithRedirect()}
                     >
-                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Log
-                      out
+                      <FontAwesomeIcon icon="power-off" className="mr-3" /> Logout
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

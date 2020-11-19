@@ -13,6 +13,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 import EventView from './views/EventView';
 import EventRegistation from './views/EventRegistrations';
+import AccountSettingsView from './views/AccountSettings'
 
 // styles
 import "./App.css";
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/dashboard" component={EventDashboard} />
             <Route path="/view/:eventId" component={EventView} />
             <Route path="/registrations" component={EventRegistation} />
+            <Route path="/settings" component={AccountSettingsView} />
           </Switch>
         </Container>
         <Footer />

@@ -59,8 +59,8 @@ app.post('/api/event/:id', checkJwt, checkScopes(['event:register']), EventServi
 app.get('/api/event/:id', checkJwt, checkScopes(['event:view']), EventService.getEventById);
 app.put('/api/event/:id', checkJwt, checkScopes(['event:update']), EventService.updateEvent);
 app.delete('/api/event/:id', checkJwt, checkScopes(['event:delete']), EventService.deleteEvent);
-app.get('/api/events/registrations', checkJwt, checkScopes(['event:view']), EventService.getRegistrationsForUser)
-
+app.get('/api/events/registrations', checkJwt, checkScopes(['event:view']), EventService.getRegistrationsForUser);
+app.post('/api/account/deactivate', checkJwt, checkScopes(['account:deactivate']), EventService.deactivate);
 
 MongoClient.connect(dbURL, (err, client) => {
   if (err) throw err;

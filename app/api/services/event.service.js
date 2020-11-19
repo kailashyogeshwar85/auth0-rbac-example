@@ -123,3 +123,14 @@ EventService.getRegistrationsForUser = (req, res) => {
     res.json(docs);
   })
 }
+
+EventService.deactivate = (req, res) => {
+  const email = req.body.email;
+  console.log(`Deactivating user ${email}`);
+
+  setTimeout(() => {
+    res.json({
+      message: 'Account Deactivated Successfully.'
+    });
+  }, 1000);
+}
