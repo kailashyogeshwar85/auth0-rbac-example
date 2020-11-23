@@ -12,7 +12,7 @@ const EventDashboard = () => {
   const { getAccessTokenSilently, user } = useAuth0();
 
   // TODO: change it to domain from config
-  const namespace = 'http://manageyourevents.com/roles'
+  const namespace = 'https://zebfi.tech/roles'
   const userRole = user[namespace][0];
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);

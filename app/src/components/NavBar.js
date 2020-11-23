@@ -33,8 +33,9 @@ const NavBar = () => {
   } = useAuth0();
   const toggle = () => setIsOpen(!isOpen);
 
+  console.log(user);
   const getRole = () => {
-    const namespace = 'http://manageyourevents.com/roles'
+    const namespace = 'https://zebfi.tech/roles'
     return user[namespace][0];
   }
 
