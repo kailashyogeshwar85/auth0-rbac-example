@@ -55,20 +55,25 @@ Create a blank Role and add below details keep the role below authorization role
 ### Endpoints
 **NOTE**: endpoints are prefixed with /api
 
-| Method   |      PATH              | Required Scopes |
-|----------|:----------------------:| ---------------:|
-| GET      |  /events               |  event:view     |
-| GET      |  /event/:id            |  event:view     |
-| POST     |  /event                |  event:create   |
-| PUT      |  /event/:id            |  event:update   |
-| DELETE   |  /event/:id            |  event:delete   |
-| POST     |  /event/:id            |  event:register |
-| GET      |  /events/registrations |  event:view     |
+| Method   |      PATH               | Required Scopes     |
+|----------|:----------------------: | ---------------    :|
+| GET      |  /events                |  event:view         |
+| GET      |  /event/:id             |  event:view         |
+| POST     |  /event                 |  event:create       |
+| PUT      |  /event/:id             |  event:update       |
+| DELETE   |  /event/:id             |  event:delete       |
+| POST     |  /event/:id             |  event:register     |
+| GET      |  /events/registrations  |  event:view         |
+| POST     | /api/account/deactivate |  account:deactivate |
 
 
 ### Roles
 - Organizer: Event Organizer who will create, update, delete events and event details.
 - Participant: A user who wished to participate in an event.
+
+
+## Step up Authentication
+Deactivate API is integrated with Step authentication which will require you to follow 2FA process when deactivating account.
 
 ### Links
 [RBAC Setup](https://auth0.com/docs/authorization/rbac)
