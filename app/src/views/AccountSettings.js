@@ -39,11 +39,36 @@ const AccountSettingsView = () => {
     logout();
   }
 
+  const enableTransaction = async () => {
+    const token = await getAccessTokenWithPopup({
+      audience: apiOrigin,
+      scope: 'transactions:enable'
+    });
+    setLoading(true);
+
+    const response = await fetch(`${apiOrigin}/api/transactions/enable`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ email: user.email })
+    });
+    if (response.status === 403) {
+      let msg = await response.text();
+      setAPIError(msg);
+      setLoading(false);
+      return;
+    }
+    const rD = await response.json();
+    setAPIError(false);
+    setLoading(false);
+  }
+
   return (
     <>
       { loading ? <Loading/> : null }
 
-      <Container>
+      <Container className="settings">
         <Row>
           <Col>
           { apiError
@@ -61,6 +86,14 @@ const AccountSettingsView = () => {
             </Alert>
           }
           <Button color="danger" onClick={deactivateAccount}>Deactivate</Button>
+
+
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <h4 className="text-success">Transaction Settings</h4>
+            <Button color="primary" onClick={enableTransaction}>Enable Transactions </Button>
           </Col>
         </Row>
       </Container>

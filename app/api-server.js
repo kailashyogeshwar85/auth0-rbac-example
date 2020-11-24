@@ -62,6 +62,12 @@ app.delete('/api/event/:id', checkJwt, checkScopes(['event:delete']), EventServi
 app.get('/api/events/registrations', checkJwt, checkScopes(['event:view']), EventService.getRegistrationsForUser);
 app.post('/api/account/deactivate', checkJwt, checkScopes(['account:deactivate']), EventService.deactivate);
 
+app.post('/api/transactions/enable', checkJwt, checkScopes(['transactions:enable']), (req, res) => {
+  res.json({
+    message: 'Transactions Enabled'
+  });
+});
+
 MongoClient.connect(dbURL, (err, client) => {
   if (err) throw err;
   console.log('connected to server');

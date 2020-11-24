@@ -2,6 +2,7 @@ const EventService = module.exports;
 const ObjectId = require('mongodb').ObjectID;
 
 EventService.getEvents = (req, res) => {
+  console.log(req.user);
   const collection = db.collection('events');
   collection.find({})
     .toArray((err, eventDocs) => {
